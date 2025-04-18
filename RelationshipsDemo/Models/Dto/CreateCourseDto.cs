@@ -1,4 +1,4 @@
-﻿namespace RelationshipsDemo.Models
+﻿namespace RelationshipsDemo.Models.Dto
 {
     public class CreateCourseDto
     {

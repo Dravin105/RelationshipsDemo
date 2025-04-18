@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RelationshipsDemo.Data;
 using RelationshipsDemo.Models;
+using RelationshipsDemo.Models.Dto;
 
 namespace RelationshipsDemo.Business_Layer
 {

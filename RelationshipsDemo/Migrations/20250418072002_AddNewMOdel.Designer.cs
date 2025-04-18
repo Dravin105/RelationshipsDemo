@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RelationshipsDemo.Data;
 
@@ -10,9 +11,11 @@ using RelationshipsDemo.Data;
 namespace RelationshipsDemo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250418072002_AddNewMOdel")]
+    partial class AddNewMOdel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +63,7 @@ namespace RelationshipsDemo.Migrations
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("RelationshipsDemo.OneToOneRelationShipModel.Profiles", b =>
+            modelBuilder.Entity("RelationshipsDemo.OneToOneRelationShipModel.Profile", b =>
                 {
                     b.Property<int>("ProfileId")
                         .ValueGeneratedOnAdd()
@@ -111,11 +114,11 @@ namespace RelationshipsDemo.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("RelationshipsDemo.OneToOneRelationShipModel.Profiles", b =>
+            modelBuilder.Entity("RelationshipsDemo.OneToOneRelationShipModel.Profile", b =>
                 {
                     b.HasOne("RelationshipsDemo.OneToOneRelationShipModel.User", "User")
-                        .WithOne("Profiles")
-                        .HasForeignKey("RelationshipsDemo.OneToOneRelationShipModel.Profiles", "UserId")
+                        .WithOne("Profile")
+                        .HasForeignKey("RelationshipsDemo.OneToOneRelationShipModel.Profile", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -129,7 +132,7 @@ namespace RelationshipsDemo.Migrations
 
             modelBuilder.Entity("RelationshipsDemo.OneToOneRelationShipModel.User", b =>
                 {
-                    b.Navigation("Profiles")
+                    b.Navigation("Profile")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

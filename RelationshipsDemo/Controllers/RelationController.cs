@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RelationshipsDemo.Business_Layer;
-using RelationshipsDemo.Models;
+using RelationshipsDemo.Models.Dto;
 
 namespace RelationshipsDemo.Controllers
 {

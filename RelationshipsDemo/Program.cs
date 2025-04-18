@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RelationshipsDemo.Business_Layer;
 using RelationshipsDemo.Data;
+using RelationshipsDemo.OneToOneRelationShipService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IService, Service>();
+builder.Services.AddScoped<IOneToOneRelationService, OneToOneRelationService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddDbContext<AppDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("RelationShip"))); 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

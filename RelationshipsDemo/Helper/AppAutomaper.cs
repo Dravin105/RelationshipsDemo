@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using RelationshipsDemo.Models;
+using RelationshipsDemo.Models.Dto;
+using RelationshipsDemo.OneToOneRelationShipModel;
 
 namespace RelationshipsDemo.Helper
 {
@@ -12,6 +14,12 @@ namespace RelationshipsDemo.Helper
 
             CreateMap<CreateStudentDto, Student>().ReverseMap();
             CreateMap<CreateCourseDto, Courses>().ReverseMap();
+
+            CreateMap<UserDto, User>().ReverseMap();
+            CreateMap<ProfileDto, Profiles>().ReverseMap();
+            CreateMap<CreateUserDto, User>().ReverseMap();
+            CreateMap<CreateProfileDto, Profiles>().ReverseMap();
+
         }
     }
 }
