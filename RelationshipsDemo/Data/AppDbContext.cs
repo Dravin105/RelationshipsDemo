@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RelationshipsDemo.Models;
+using RelationshipsDemo.OneToManyRelationShipModel;
 using RelationshipsDemo.OneToOneRelationShipModel;
 
 namespace RelationshipsDemo.Data
@@ -13,6 +14,8 @@ namespace RelationshipsDemo.Data
         public DbSet<Courses> Coursess { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Profiles> Profiles { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Prodects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +23,11 @@ namespace RelationshipsDemo.Data
                 .HasOne(u => u.Profiles)
                 .WithOne(p => p.User)
                 .HasForeignKey<Profiles>(u => u.UserId);
+
+            modelBuilder.Entity<Category>()
+            .HasMany(c => c.Products)
+            .WithOne(p => p.Category)
+            .HasForeignKey(p => p.CategoryId);
 
         }
 
